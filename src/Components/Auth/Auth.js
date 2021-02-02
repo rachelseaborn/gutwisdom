@@ -19,11 +19,25 @@ class Auth extends Component {
         }
     }
 
-    handleInput = e => {
+    handleInput = event => {
         this.setState({
-            [e.target.name]: e.target.value
+            [event.target.name]: event.target.value
         })
     }
+
+    // handleSubscribe = () => {
+    //     const { username, email, password, confirmPassword, profilePicture } = this.state
+
+    //     if (password && password === confirmPassword) {
+    //         axios.post('/api/subscribe', { username, email, password, profilePicture})
+    //         .then(res => {
+    //             this.props.getUser(res.data)
+    //             this.props.history.push('/dashboard')
+    //         })
+    //     } else {
+    //         alert("Passwords don't match.")
+    //     }
+    // }
 
     login = (e) => {
         e.preventDefault();
@@ -51,4 +65,4 @@ class Auth extends Component {
     }
 }
 
-export default Auth
+export default connect(null, { getUser })(Auth)
