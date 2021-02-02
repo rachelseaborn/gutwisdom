@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs');
 
+const require = require('stripe')(process.env.STRIPE_SECRET);
+
 module.exports = {
 
     register: async (req, res) => {
@@ -18,6 +20,22 @@ module.exports = {
         req.session.user = newUser
         res.status(201).send(req.session.user)
 
+    },
+
+    subscribePayment: (req, res) => {
+        const { token, amount } = req.body;
+
+        const charge = stripe.charges.create({
+            amount,
+            currency: 'USD',
+            source: token.id,
+            description: 'Subscription charge'
+        }, function (err, charge) {
+            if (err) {
+                return res.sendStatus(500);
+            }
+            res.sendStatus(200);
+        })
     },
 
     login: async (req, res) => {
