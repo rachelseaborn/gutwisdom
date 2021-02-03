@@ -2,6 +2,7 @@ import react from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { getUser } from '../../redux/userReducer';
+import Subscribe from '../Subscribe/Subscribe'
 
 import { Component } from 'react'
 
@@ -39,30 +40,67 @@ class Auth extends Component {
     //     }
     // }
 
-    login = (e) => {
+    handleRegister = (e) => {
+        const { username, email, password, confirmPassword, profilePicture } = this.state
+
         e.preventDefault();
-        axios.post('/api/login', { email: this.state.email, password: this.state.password })
+
+        if (password && password === confirmPassword) {
+            axios.post('/api/register', { username, email, password, profilePicture })
+                .then(res => {
+                    this.props.getUser(res.data)
+                })
+                .catch(err => console.log(err))
+        } else {
+            alert("Passwords don't match.")
+        }
+    }
+
+    handleLogin = (e) => {
+        const { email, password } = this.state
+
+        e.preventDefault();
+
+        axios.post('/api/login', { email, password })
             .then(res => {
                 this.props.getUser(res.data);
-                this.props.history.push('/dashboard');
+                // this.props.history.push('/dashboard');
             })
             .catch(err => console.log(err));
-
     }
 
     render() {
-        const { email, password } = this.state;
+        const { username, email, password, confirmPassword, profilePicture } = this.state;
 
         return (
-
-            <form className='login-form'>
-                <input name='email' placeholder='Email' value={email} onChange={e => this.handleInput(e)} />
-                <input type='password' name='password' placeholder='Password' value={password} onChange={e => this.handleInput(e)} />
-                <button onClick={e => this.login(e)}>Login</button>
-            </form>
-
+            <div className='user-setup'>
+                <form className='login-form'>
+                    <input name='email' placeholder='Email' value={email} onChange={e => this.handleInput(e)} />
+                    <input type='password' name='password' placeholder='Password' value={password} onChange={e => this.handleInput(e)} />
+                    <button onClick={e => this.handleLogin(e)}>Login</button>
+                </form>
+                {/* <form className='register-form'>
+                    <input name='username' placeholder='Username' value={username} onChange={e => this.handleInput(e)} />
+                    <input name='email' placeholder='Email' value={email} onChange={e => this.handleInput(e)} />
+                    <input type='password' placeholder='Password' value={password} onChange={e => this.handleInput(e)} />
+                    <input type='password' placeholder='Confirm password' value={confirmPassword} onChange={e => this.handleInput(e)} />
+                    <input name='profilePicture' placeholder='Profile picture link' value={profilePicture} onChange={e => this.handleInput(e)} />
+                    <button onClick={e => this.handleRegister(e)}>Register</button>
+                </form> */}
+                {/* <form className='subscribe-form'>
+                    <h2>Subscribe here </h2>
+                    <input name='username' placeholder='Username' value={username} onChange={e => this.handleInput(e)} />
+                    <input name='email' placeholder='Email' value={email} onChange={e => this.handleInput(e)} />
+                    <input type='password' placeholder='Password' value={password} onChange={e => this.handleInput(e)} />
+                    <input type='password' placeholder='Confirm password' value={confirmPassword} onChange={e => this.handleInput(e)} />
+                    <input name='profilePicture' placeholder='Profile picture link' value={profilePicture} onChange={e => this.handleInput(e)} />
+                    <button onClick={e => this.handleRegister(e)}>Register</button>
+                </form> */}
+            </div>
         )
     }
 }
+
+// const mapStateToProps = reduxState => reduxState;
 
 export default connect(null, { getUser })(Auth)
