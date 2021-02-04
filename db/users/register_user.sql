@@ -7,6 +7,6 @@ insert into subscribed_user (
     ${username},
     ${email},
     ${hash},
-    ${profilePicture}
+    ${profile_picture}
 )
-returning user_id, username, email, profile_picture;
+returning user_id, username, email, profile_picture

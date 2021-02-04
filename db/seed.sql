@@ -28,7 +28,10 @@ create table topic (
 create table article (
     article_id serial primary key,
     topic_id int references topic(topic_id),
-    article_url text
+    article_url text,
+    article_title text,
+    article_body text,
+    paid_content boolean
 );
 
 create table video (

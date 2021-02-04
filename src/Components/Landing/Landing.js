@@ -1,22 +1,43 @@
-import { Component } from 'react';
-import Auth from '../Auth/Auth';
-import Subscribe from '../Subscribe/Subscribe';
-
+import { Component } from "react";
+import Auth from "../Auth/Auth";
+import Subscribe from "../Subscribe/Subscribe";
+import { withRouter } from "react-router";
 
 class Landing extends Component {
+  constructor() {
+    super();
+    this.state = {
+      view: "login",
+    };
+  }
 
-
-
-
-
-    render() {
-        return (
-            <div className="Landing">
-                <Auth />
-                <Subscribe />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="Landing">
+        {this.state.view === "login" ? (
+          <div>
+            <Auth />
+            <p>
+              Don't have an account?
+              <a onClick={() => this.setState({ view: "subscribe" })}>
+                Sign up here.
+              </a>
+            </p>
+          </div>
+        ) : (
+          <div>
+            <Subscribe />
+            <p>
+              Have an account?
+              <a onClick={() => this.setState({ view: "login" })}>
+                Login here.
+              </a>
+            </p>
+          </div>
+        )}
+      </div>
+    );
+  }
 }
 
-export default Landing
+export default withRouter(Landing);
