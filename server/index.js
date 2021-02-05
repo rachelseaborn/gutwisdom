@@ -43,6 +43,7 @@ app.get("/api/logout", authCtrl.logout);
 
 app.get("/api/articles", mainCtrl.getArticle);
 app.get("/api/search/:id", mainCtrl.searchArticle);
+app.get("/api/search/", mainCtrl.getTopics);
 
 //User endpoints
 app.put("/api/update/:id", mainCtrl.updateUser); //TBD

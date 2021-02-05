@@ -37,6 +37,12 @@ module.exports = {
     }
   },
 
+  getTopics: async (req, res) => {
+    const db = req.app.get("db");
+    const topics = await db.articles.get_topics();
+    res.status(200).send(topics);
+  },
+
   updateUser: async (req, res) => {},
 
   deleteUser: async (req, res) => {},
