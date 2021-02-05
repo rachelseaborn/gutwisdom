@@ -1,11 +1,18 @@
-import { Component } from 'react'
+import { Component } from "react";
 
 class Search extends Component {
-    render() {
-        return (
-            <section>Search</section>
-        )
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      articles: [],
+      topics: "",
+    };
+
+    //Display available topics from db
+  }
+  render() {
+    return <section>Search</section>;
+  }
 }
 
-export default Search
+export default Search;
