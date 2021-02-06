@@ -42,7 +42,7 @@ app.get("/api/logout", authCtrl.logout);
 //Content endpoints
 
 app.get("/api/articles", mainCtrl.getArticle);
-app.get("/api/search/:id", mainCtrl.searchArticle);
+app.get("/api/search/:topic_name", mainCtrl.searchArticle);
 app.get("/api/search/", mainCtrl.getTopics);
 
 //User endpoints

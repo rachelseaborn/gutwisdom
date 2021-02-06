@@ -21,9 +21,13 @@ class TopicDashboard extends Component {
   handleChange(topic) {
     console.log("User chose a topic.");
     this.setState({ topic });
+    axios.get("/api/search/:topic_name");
   }
 
-  showTopicContent = () => {};
+  // showTopicContent = () => {
+  //   this.setState({ label: this.state.topic.topic_name });
+  //   axios.get("/api/search/:id");
+  // };
 
   //Display topic list
 

@@ -1,4 +1,4 @@
 select * from article 
-where topic_id = $1;
+where topic_name = $1;
 
-returning article_title, article_body
+-- returning article_title, article_body
