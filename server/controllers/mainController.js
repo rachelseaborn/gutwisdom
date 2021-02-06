@@ -53,6 +53,7 @@ module.exports = {
       .catch((err) => res.status(500).send(err));
   },
 
+  //May change to user submitting an unsubscribe request, since user is paying. A request is more true to rl.
   deleteUser: async (req, res) => {
     const { user_id } = req.params;
     const db = req.app.get("db");

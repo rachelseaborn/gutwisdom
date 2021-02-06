@@ -116,7 +116,7 @@ class Subscribe extends Component {
         this.handleRegister(result);
         this.props.history.push("/dashboard");
       })
-      .catch((err) => alert("Your payment method is invalid"));
+      .catch((err) => alert("Your payment method is invalid."));
   };
 
   render() {
@@ -151,7 +151,7 @@ class Subscribe extends Component {
           />
         </div>
         {/* {this.state.subscribed && */}
-        <p>Add payment to complete sign up</p>
+        <p>Add payment to complete signup</p>
         <StripeCheckout
           label="Add payment method"
           token={this.onToken}
