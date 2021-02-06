@@ -1,6 +1,7 @@
 import axios from "axios";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/userReducer";
+// import { clearUser } from "../../redux/userReducer";
 import { Component } from "react";
 import { withRouter } from "react-router";
 
@@ -103,23 +104,6 @@ class Auth extends Component {
           />
           <button onClick={(e) => this.handleLogin(e)}>Login</button>
         </form>
-        {/* <form className='register-form'>
-                    <input name='username' placeholder='Username' value={username} onChange={e => this.handleInput(e)} />
-                    <input name='email' placeholder='Email' value={email} onChange={e => this.handleInput(e)} />
-                    <input type='password' placeholder='Password' value={password} onChange={e => this.handleInput(e)} />
-                    <input type='password' placeholder='Confirm password' value={confirmPassword} onChange={e => this.handleInput(e)} />
-                    <input name='profilePicture' placeholder='Profile picture link' value={profilePicture} onChange={e => this.handleInput(e)} />
-                    <button onClick={e => this.handleRegister(e)}>Register</button>
-                </form> */}
-        {/* <form className='subscribe-form'>
-                    <h2>Subscribe here </h2>
-                    <input name='username' placeholder='Username' value={username} onChange={e => this.handleInput(e)} />
-                    <input name='email' placeholder='Email' value={email} onChange={e => this.handleInput(e)} />
-                    <input type='password' placeholder='Password' value={password} onChange={e => this.handleInput(e)} />
-                    <input type='password' placeholder='Confirm password' value={confirmPassword} onChange={e => this.handleInput(e)} />
-                    <input name='profilePicture' placeholder='Profile picture link' value={profilePicture} onChange={e => this.handleInput(e)} />
-                    <button onClick={e => this.handleRegister(e)}>Register</button>
-                </form> */}
       </div>
     );
   }

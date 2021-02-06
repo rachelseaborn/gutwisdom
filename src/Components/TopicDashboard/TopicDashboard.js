@@ -2,6 +2,7 @@ import axios from "axios";
 import { Component } from "react";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/userReducer";
+import { clearUser } from "../../redux/userReducer";
 import { withRouter } from "react-router";
 
 import Select from "react-select";
@@ -49,6 +50,16 @@ class TopicDashboard extends Component {
   //   { value: "plant-based diet", label: "Plant-based diet" },
   // ];
 
+  handleLogout = () => {
+    axios
+      .get("/api/logout")
+      .then(() => {
+        this.props.clearUser();
+        this.props.history.push("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     const mapTopics = this.state.topics.map((topic) => {
       return { value: topic.value, label: topic.topic_name };
@@ -61,6 +72,7 @@ class TopicDashboard extends Component {
           // isMulti
           onChange={this.handleChange}
         />
+        <button onClick={this.handleLogout}>Logout</button>
       </div>
     );
   }
@@ -79,4 +91,4 @@ class TopicDashboard extends Component {
 
 // export default TopicDashboard
 
-export default connect(null, { getUser })(TopicDashboard);
+export default connect(null, { getUser, clearUser })(TopicDashboard);
