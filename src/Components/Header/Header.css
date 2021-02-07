@@ -1,0 +1,17 @@
+header {
+  width: 100vw;
+  height: 260px;
+  display: flex;
+
+  flex-direction: column;
+  font-family: fantasy;
+  font-weight: bold;
+  /* align-items: center; */
+  /* position: fixed; */
+  margin-bottom: 50px;
+  z-index: 2;
+}
+
+h1 {
+  color: whitesmoke;
+}

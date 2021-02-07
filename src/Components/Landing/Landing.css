@@ -1,0 +1,14 @@
+body {
+  height: 100%;
+  background-image: url("thao-le-hoang-WRfgYQWezh8-unsplash\ \(6\).jpg");
+  background-color: black;
+  background-repeat: no-repeat;
+}
+/* 
+.bg {
+  background-image: url("thao-le-hoang-WRfgYQWezh8-unsplash\ \(6\).jpg");
+} */
+
+p {
+  color: whitesmoke;
+}

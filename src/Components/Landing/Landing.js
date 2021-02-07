@@ -3,6 +3,8 @@ import Auth from "../Auth/Auth";
 import Subscribe from "../Subscribe/Subscribe";
 import { withRouter } from "react-router";
 
+import "./Landing.css";
+
 class Landing extends Component {
   constructor() {
     super();
