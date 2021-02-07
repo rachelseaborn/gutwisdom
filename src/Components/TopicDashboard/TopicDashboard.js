@@ -67,6 +67,7 @@ class TopicDashboard extends Component {
     console.log("this.state.topic", this.state.topic);
     return (
       <div className="Dashboard">
+        <h2>Choose a Topic</h2>
         <Select
           options={mapTopics}
           // isMulti

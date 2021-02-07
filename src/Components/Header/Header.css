@@ -1,10 +1,10 @@
 header {
   width: 100vw;
-  height: 260px;
+  height: 200px;
   display: flex;
 
   flex-direction: column;
-  font-family: fantasy;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
   /* align-items: center; */
   /* position: fixed; */
@@ -14,4 +14,10 @@ header {
 
 h1 {
   color: whitesmoke;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+h2 {
+  color: whitesmoke;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
